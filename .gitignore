@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+node_modules/
+.wrangler/
+# made by _build/demo.py on each demo deploy
+_build/demo-dist/

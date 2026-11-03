@@ -1,0 +1,9 @@
+// The demo site on Cloudflare Workers (static assets only). Build demo-dist first with demo.py.
+{
+  "name": "khat-demo",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./demo-dist",
+    "html_handling": "auto-trailing-slash"
+  }
+}
