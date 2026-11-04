@@ -6,9 +6,9 @@ from titles import title_case
 from airbnb import AIRBNB, AIRBNB_NOTE
 HERE = os.path.dirname(os.path.abspath(__file__))
 K = os.path.normpath(os.path.join(HERE, '..', '..'))
-t = open(os.path.join(HERE, 'home_source.html')).read()
-HEADER = re.sub(r'\{\{CUR_[a-z-]+\}\}', '', open(os.path.join(HERE, 'partials', 'header.html')).read())
-FOOTER = open(os.path.join(HERE, 'partials', 'footer.html')).read()
+t = open(os.path.join(HERE, 'home_source.html'), encoding='utf-8').read()
+HEADER = re.sub(r'\{\{CUR_[a-z-]+\}\}', '', open(os.path.join(HERE, 'partials', 'header.html'), encoding='utf-8').read())
+FOOTER = open(os.path.join(HERE, 'partials', 'footer.html'), encoding='utf-8').read()
 
 def cut(a, b, new, include_end=True):
     global t
@@ -43,7 +43,7 @@ cut('<div class="wrap cats">', '<section class="band promise">', '''<section cla
         <p>Our three trips with the most Tripadvisor reviews, all rated 5.0.</p>
       </div></div>
       <div class="grid pop-grid" id="pop-grid"></div>
-      <p class="more-tours">Looking for something else? <a href="https://wa.me/971564031600" data-wa="custom_trip">Ask us on WhatsApp</a> and we'll plan it.</p>
+      <p class="more-tours">Looking for something else? <a href="https://chat.whatsapp.com/DOW0NrXtuJpAb0G1cILkYL?s=cl&p=i&mlu=4&ilr=4&iam=2" data-wa="custom_trip" target="_blank" rel="noopener">Ask us on WhatsApp</a> and we'll plan it.</p>
     </div>
   </section>
 
@@ -60,17 +60,18 @@ one('@media (max-width: 560px) {\n  /* phones', '@media (max-width: 560px) {\n  
 data = json.loads(re.search(r'<script type="application/json" id="home-data">(.*?)</script>', t, re.S).group(1))
 data.pop('tours'); data.pop('categories')
 data['airbnb'] = AIRBNB
+data['whatsapp_group'] = 'https://chat.whatsapp.com/DOW0NrXtuJpAb0G1cILkYL?s=cl&p=i&mlu=4&ilr=4&iam=2'
 data['categories'] = [
-  {"id": "desert", "name": "Desert safari Dubai", "url": "/desert-safari-dubai/", "photo": "/assets/img/land-cruisers-sunset-800.jpg", "line": "Evening, kids-friendly, candlelight dinner and morning safaris in your own Land Cruiser.", "count": "4 safaris", "note": "Hotel pickup included", "from": 400, "unit": "per Land Cruiser"},
+  {"id": "desert", "name": "Desert safari Dubai", "url": "/desert-safari-dubai/", "photo": "/assets/img/land-cruisers-sunset-800.jpg", "line": "Evening, kids-friendly, candlelight dinner and morning safaris in your own Land Cruiser.", "count": "4 safaris", "note": "Hotel pickup included", "from": 500, "unit": "per Land Cruiser"},
   {"id": "yacht", "name": "Private yacht rental", "url": "/yacht-rental-dubai/", "photo": "/assets/img/yacht-marina-800.jpg", "line": "Dubai Marina, Atlantis and Burj Al Arab from your own boat, with captain and crew.", "count": "1 to 4 hours", "note": "Captain and crew included", "from": 800, "unit": "per hour"},
   {"id": "abudhabi-safari", "name": "Abu Dhabi desert safari", "url": "/abu-dhabi-desert-safari/", "photo": "/assets/img/abu-dhabi-land-cruiser.jpg", "line": "Evening safaris with dinner and fire shows, and kids-friendly mornings with a camel farm.", "count": "4 safaris", "note": "Pickup in Abu Dhabi", "from": 500, "unit": "per Land Cruiser"},
-  {"id": "buggy", "name": "Dune buggy and quad bike", "url": "/dune-buggy-dubai/", "photo": "/assets/img/dune-buggy.jpg", "line": "Drive a Polaris or Can-Am buggy, or ride your own quad, behind a lead guide.", "count": "3 rides", "note": "Hotel pickup included", "from": 350, "unit": ""},
-  {"id": "abudhabi-city", "name": "Abu Dhabi city tour", "url": "/abu-dhabi-city-tour/", "photo": "/assets/img/grand-mosque.jpg", "line": "The Sheikh Zayed Grand Mosque, Emirates Palace and Heritage Village with a private guide.", "count": "2 tours", "note": "Pickup from Dubai or Abu Dhabi", "from": 110, "unit": ""},
+  {"id": "buggy", "name": "Dune buggy and quad bike", "url": "/dune-buggy-dubai/", "photo": "/assets/img/dune-buggy.jpg", "line": "Drive a Polaris or Can-Am buggy, or ride your own quad, behind a lead guide.", "count": "3 rides", "note": "Hotel pickup included", "from": 450, "unit": ""},
+  {"id": "abudhabi-city", "name": "Abu Dhabi city tour", "url": "/abu-dhabi-city-tour/", "photo": "/assets/img/grand-mosque.jpg", "line": "The Sheikh Zayed Grand Mosque, Emirates Palace and Heritage Village with a private guide.", "count": "2 tours", "note": "Pickup from Dubai or Abu Dhabi", "from": 600, "unit": ""},
   {"id": "city", "name": "Dubai city tour and dinner cruise", "url": "/dubai-city-tour/", "photo": "/assets/img/abra-creek-800.jpg", "line": "Old Dubai, the souks and an abra ride by day, a dhow dinner cruise by night.", "count": "3 tours", "note": "Hotel pickup on city tours", "from": 120, "unit": ""}
 ]
 data['popular'] = [
-  {"id": "private-evening", "name": "Private evening desert safari", "url": "/desert-safari-dubai/?safari=private-evening", "photo": "/assets/img/land-cruisers-sunset-800.jpg", "line": "Dune bashing, a camel ride and a belly dance show at sunset.", "duration": "6 hours", "rating": [5.0, 218], "from": 750, "unit": "per Land Cruiser"},
-  {"id": "kids-evening", "name": "Kids-friendly desert safari", "url": "/desert-safari-dubai/?safari=kids-evening", "photo": "/assets/img/mother-and-child.jpg", "line": "Planned around small children, with baby seats on request.", "duration": "6 hours", "rating": [5.0, 74], "from": 750, "unit": "per Land Cruiser"},
+  {"id": "private-evening", "name": "Private evening desert safari", "url": "/desert-safari-dubai/?safari=private-evening", "photo": "/assets/img/land-cruisers-sunset-800.jpg", "line": "Dune bashing, a camel ride and a belly dance show at sunset.", "duration": "6 hours", "rating": [5.0, 218], "from": 850, "unit": "per Land Cruiser"},
+  {"id": "kids-evening", "name": "Kids-friendly desert safari", "url": "/desert-safari-dubai/?safari=kids-evening", "photo": "/assets/img/mother-and-child.jpg", "line": "Planned around small children, with baby seats on request.", "duration": "6 hours", "rating": [5.0, 74], "from": 850, "unit": "per Land Cruiser"},
   {"id": "ad-kids-morning", "name": "Abu Dhabi kids-friendly morning safari", "url": "/abu-dhabi-desert-safari/?safari=ad-kids-morning", "photo": "/assets/img/abu-dhabi-family.jpg", "line": "A camel farm, dune bashing and sandboarding, back before the heat.", "duration": "4 hours", "rating": [5.0, 48], "from": 500, "unit": "per Land Cruiser"}
 ]
 for c in data['categories'] + data['popular']:
@@ -105,5 +106,5 @@ one("    var card = e.target.closest('a.card');\n    if (card) { var t = data.to
 left = sorted(set(re.findall(r'href="(https://khattourism\.com[^"]*)"', t)))
 for m in re.finditer(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', t, re.S): json.loads(m.group(1))
 os.makedirs(os.path.join(K, 'site'), exist_ok=True)
-open(os.path.join(K, 'site', 'index.html'), 'w').write(t)
+open(os.path.join(K, 'site', 'index.html'), 'w', encoding='utf-8').write(t)
 print('site/index.html', len(t), 'bytes; khattourism.com hrefs:', left, '; leftover /home/:', '/home/' in t, '; leftover filter code:', 'filters' in t)

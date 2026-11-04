@@ -4,9 +4,9 @@ import os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.normpath(os.path.join(HERE, '..', '..', 'site'))
-header = re.sub(r'\{\{CUR_[a-z-]+\}\}', '', open(os.path.join(HERE, 'partials', 'header.html')).read()).strip()
-footer = open(os.path.join(HERE, 'partials', 'footer.html')).read().strip()
-home = open(os.path.join(SITE, 'index.html')).read()
+header = re.sub(r'\{\{CUR_[a-z-]+\}\}', '', open(os.path.join(HERE, 'partials', 'header.html'), encoding='utf-8').read()).strip()
+footer = open(os.path.join(HERE, 'partials', 'footer.html'), encoding='utf-8').read().strip()
+home = open(os.path.join(SITE, 'index.html'), encoding='utf-8').read()
 style = home[home.index('<style>'):home.index('</style>') + len('</style>')]
 sprite = home[home.index('<svg width="0" height="0"'):home.index('</svg>', home.index('<svg width="0" height="0"')) + 6]
 head_links = '\n'.join(l for l in home.split('\n') if l.startswith(('<link rel="icon"', '<link rel="apple-touch-icon"', '<link rel="preload" href="/assets/fonts')))
@@ -65,7 +65,7 @@ page = f'''<!doctype html>
 
   <div class="ask">
     <p>Need to change or cancel a booking?</p>
-    <a class="btn btn-wa" href="https://wa.me/971564031600" data-wa="policy"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Message us on WhatsApp</a>
+    <a class="btn btn-wa" href="https://chat.whatsapp.com/DOW0NrXtuJpAb0G1cILkYL?s=cl&p=i&mlu=4&ilr=4&iam=2" data-wa="policy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Message us on WhatsApp</a>
   </div>
 </main>
 
@@ -84,5 +84,5 @@ document.addEventListener('click', function (e) {{
 </html>
 '''
 os.makedirs(os.path.join(SITE, 'cancellation-policy'), exist_ok=True)
-open(os.path.join(SITE, 'cancellation-policy', 'index.html'), 'w').write(page)
+open(os.path.join(SITE, 'cancellation-policy', 'index.html'), 'w', encoding='utf-8').write(page)
 print('cancellation-policy', len(page), 'bytes; khattourism hrefs:', sorted(set(re.findall(r'href="(https://khattourism\.com[^"]*)"', page))))

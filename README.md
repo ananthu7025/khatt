@@ -120,7 +120,7 @@ Set the first two up as Google Ads conversions in GTM.
 
 ## Before going live: what Khat needs to confirm
 
-1. **Prices and units.** Desert and Abu Dhabi safaris are priced per Land Cruiser, the candlelight dinner per couple and the yacht per hour. The buggy (AED 450), quad (350), Abu Dhabi city tour (150), Grand Mosque (110), Dubai city tours (120 and 220) and dinner cruise (180) are shown as "starting price", because their tour pages don't say whether that's per person or per car.
+1. **Prices and units.** Desert and Abu Dhabi safaris are priced per Land Cruiser, the candlelight dinner per couple and the yacht per hour. The buggy (AED 750), quad (450), Abu Dhabi city tour (850), Grand Mosque (600), Dubai city tours (120 and 220) and dinner cruise (180) are shown as "starting price", because their tour pages don't say whether that's per person or per car.
 2. **"Only private tours".**
    - The half-day city tour page mentions a "coached transfer".
    - The dhow dinner cruise is usually a shared boat.

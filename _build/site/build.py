@@ -12,9 +12,9 @@ from airbnb import AIRBNB, AIRBNB_NOTE   # pages with "airbnb": True show it
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.normpath(os.path.join(HERE, '..', '..', 'site'))
-TEMPLATE = open(os.path.join(HERE, 'template.html')).read()
-HEADER = open(os.path.join(HERE, 'partials', 'header.html')).read()
-FOOTER = open(os.path.join(HERE, 'partials', 'footer.html')).read()
+TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
+HEADER = open(os.path.join(HERE, 'partials', 'header.html'), encoding='utf-8').read()
+FOOTER = open(os.path.join(HERE, 'partials', 'footer.html'), encoding='utf-8').read()
 
 FOOTER_CSS = """footer.site-foot { padding-block: 44px 120px; font-size: 14.5px; color: var(--ink-2); border-top: 1px solid var(--line); }
 footer.site-foot .cols { display: grid; grid-template-columns: 1.3fr repeat(3, minmax(0, 1fr)); gap: 28px; }
@@ -142,12 +142,12 @@ PAGES = [
     "options": [
       {"id": "private-evening", "name": "Private evening safari", "tag": "For groups and friends", "hot": "Most reviewed", "photo": "land-cruisers-sunset-800.jpg",
        "blurb": "Just your group and the driver in a Land Cruiser, out to the red dunes for sunset.", "chips": ["Red dune bashing", "Camel ride", "Belly dance show"],
-       "group": "evening", "duration": "6 hours", "pickup": "3:00–3:30 PM", "private": 750, "unit": "per Land Cruiser",
+       "group": "evening", "duration": "6 hours", "pickup": "3:00–3:30 PM", "private": 850, "unit": "per Land Cruiser",
        "includes": ["Hotel pickup and drop-off", "Red dune bashing", "Camel ride", "Arabic coffee and dates", "Unlimited soft drinks", "Shisha corner", "Belly dance show"],
        "excludes": ["Private VIP table at the camp", "Quad bike"]},
       {"id": "kids-evening", "name": "Kids-friendly safari", "tag": "For families", "photo": "mother-and-child.jpg",
        "blurb": "Planned around small children, with baby seats on request and drivers used to little ones.", "chips": ["Baby seats and boosters", "Sandboarding", "Live shows"],
-       "group": "evening", "duration": "6 hours", "pickup": "2:30–3:00 PM", "private": 750, "unit": "per Land Cruiser",
+       "group": "evening", "duration": "6 hours", "pickup": "2:30–3:00 PM", "private": 850, "unit": "per Land Cruiser",
        "includes": ["Hotel pickup and drop-off", "Baby seats and boosters on request", "Sandboarding", "Live entertainment shows", "Soft drinks and water"],
        "excludes": ["Quad bikes (available to rent)", "Falcon photos", "Alcoholic drinks"]},
       {"id": "romantic-dinner", "name": "Candlelight dinner for two", "tag": "For couples", "photo": "camp-dinner-night.jpg",
@@ -157,7 +157,7 @@ PAGES = [
        "excludes": ["Quad bike", "Dune buggy"]},
       {"id": "private-morning", "name": "Morning safari", "tag": "For hot days and early risers", "photo": "land-cruiser-daytime.jpg",
        "blurb": "Out early while the dunes are cool, and back at your hotel by late morning.", "chips": ["Dune bashing", "Sandboarding", "Camel ride"],
-       "group": "morning", "duration": "3 hours", "pickup": "7:30–8:00 AM", "private": 400, "unit": "per Land Cruiser",
+       "group": "morning", "duration": "3 hours", "pickup": "7:30–8:00 AM", "private": 500, "unit": "per Land Cruiser",
        "includes": ["Hotel pickup and drop-off", "Dune bashing", "Sandboarding", "Camel ride"], "excludes": ["Breakfast", "Quad bikes"]},
     ],
     "day": {
@@ -238,12 +238,12 @@ PAGES = [
     "options": [
       {"id": "ad-city", "name": "Full-day Abu Dhabi city tour", "tag": "For seeing the city", "photo": "abu-dhabi-skyline.jpg",
        "blurb": "The Grand Mosque, Emirates Palace, the Heritage Village and a drive along the Corniche.", "chips": ["Grand Mosque", "Heritage Village", "Emirates Palace"],
-       "group": "adcity", "duration": "8 hours", "pickup": "9:00 AM, from Dubai or Abu Dhabi", "private": 150, "unit": "starting price",
+       "group": "adcity", "duration": "8 hours", "pickup": "9:00 AM, from Dubai or Abu Dhabi", "private": 850, "unit": "starting price",
        "includes": ["Pickup from Dubai or Abu Dhabi", "Licensed guide", "Sheikh Zayed Grand Mosque", "Heritage Village entry", "Emirates Palace photo stop", "Corniche drive", "Dates market", "Ferrari World photo stop"],
        "excludes": ["Lunch", "Ferrari World tickets"]},
       {"id": "grand-mosque", "name": "Grand Mosque tour", "tag": "For a half-day visit", "photo": "grand-mosque.jpg",
        "blurb": "A guided visit to the Sheikh Zayed Grand Mosque, with private transfers there and back.", "chips": ["Licensed guide", "Private transfer", "Half day"],
-       "group": "mosque", "duration": "4 hours", "pickup": "8:00 AM", "private": 110, "unit": "starting price",
+       "group": "mosque", "duration": "4 hours", "pickup": "8:00 AM", "private": 600, "unit": "starting price",
        "includes": ["Private transfer", "Professional guide", "Bottled water"], "excludes": ["Meals"]},
     ],
     "day": {
@@ -274,11 +274,11 @@ PAGES = [
     "options": [
       {"id": "dune-buggy", "name": "Dune buggy tour", "tag": "For thrill seekers", "photo": "dune-buggy.jpg",
        "blurb": "Drive a Polaris or Can-Am buggy yourself through the red dunes, behind a lead guide.", "chips": ["Self-drive", "Polaris or Can-Am", "Lead guide"],
-       "group": "ride", "duration": "3 hours", "pickup": "At a time that suits you", "private": 450, "unit": "starting price",
+       "group": "ride", "duration": "3 hours", "pickup": "At a time that suits you", "private": 750, "unit": "starting price",
        "includes": ["Hotel pickup and drop-off", "Full safety briefing", "Helmet and goggles", "Experienced lead guide", "Water and energy drinks"], "excludes": ["Souvenirs and photos", "Tips"]},
       {"id": "quad-bike", "name": "Quad bike tour", "tag": "For riding your own quad", "photo": "quad-bikes-dunes.jpg",
        "blurb": "An hour on your own quad bike with a lead guide, a mechanic and a safety vehicle.", "chips": ["1 hour on a quad", "Safety gear", "Sandboarding"],
-       "group": "ride", "duration": "3 hours", "pickup": "8:00 AM or 3:00 PM", "private": 350, "unit": "starting price",
+       "group": "ride", "duration": "3 hours", "pickup": "8:00 AM or 3:00 PM", "private": 450, "unit": "starting price",
        "includes": ["Private pickup and drop-off", "Full safety briefing", "Helmet, goggles and harness", "Experienced lead guide", "Mechanic and safety vehicle", "1 hour quad ride", "Cold water"],
        "excludes": ["Tips for the instructors"]},
       {"id": "morning-quad", "name": "Morning safari with quad bike", "tag": "For a bit of everything", "photo": "land-cruiser-daytime.jpg",
@@ -470,7 +470,7 @@ def data_block(p):
             if q: mine.append(q.pop(0))
     pool = mine + [r for r in REVIEWS if not r['tours']] + [r for r in REVIEWS if r['tours'] and r not in mine]   # pages without their own reviews borrow the best others
     reviews = [{k: v for k, v in dict(r, about=title_case(r['about'])).items() if k != 'why'} for r in pool[:max(8, len(mine))]]
-    d = {"whatsapp": "971564031600", "currency": "AED", "defaultOption": p['default'], "ratings": RATINGS, "mentions": MENTIONS, "options": opts, "reviews": reviews}
+    d = {"whatsapp": "971564031600", "whatsappGroup": "https://chat.whatsapp.com/DOW0NrXtuJpAb0G1cILkYL?s=cl&p=i&mlu=4&ilr=4&iam=2", "currency": "AED", "defaultOption": p['default'], "ratings": RATINGS, "mentions": MENTIONS, "options": opts, "reviews": reviews}
     if p.get('airbnb'):
         d['airbnb'] = AIRBNB
     return json.dumps(d, ensure_ascii=False, indent=1)
@@ -520,7 +520,7 @@ def build(p):
     for m in re.finditer(r'<script type="application/(?:ld\+)?json"[^>]*>(.*?)</script>', t, re.S):
         json.loads(m.group(1))
     os.makedirs(os.path.join(SITE, p['slug']), exist_ok=True)
-    open(os.path.join(SITE, p['slug'], 'index.html'), 'w').write(t)
+    open(os.path.join(SITE, p['slug'], 'index.html'), 'w', encoding='utf-8').write(t)
     links = sorted(set(re.findall(r'href="(https://khattourism\.com[^"]*)"', t)))
     print('%-26s %6d bytes  options=%d  links to khattourism.com: %s' % (p['slug'], len(t), len(p['options']), [l for l in links if 'canonical' not in l] or 'none'))
 
